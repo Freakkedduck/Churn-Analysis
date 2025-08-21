@@ -4,21 +4,7 @@ This project provides a complete end-to-end customer churn analysis and retentio
 
 
 ## Quick Start
-
-1. **Install Dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-2. **Run the Dashboard**
-   ```bash
-   streamlit run churn_dashboard.py
-   ```
-
-3. **Access Dashboard**
-   - Open your browser to `http://localhost:8501`
-   - Explore the interactive churn analytics dashboard
-
+[Click here to access the dashboard](https://freakkedduck-churn-analysis-churn-dashboard-9b0zt4.streamlit.app/)
 ## Key Features
 
 ### 📊 Interactive Dashboard
