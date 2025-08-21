@@ -25,7 +25,7 @@ st.title("Customer Churn Analytics Dashboard")
 st.markdown("### Telecom Customer Retention Intelligence")
 
 # Tabs for dashboard sections
-tab1, tab2 = st.tabs(["📊 Dashboard", "📋 Retention Playbook"])
+tab1, tab2 = st.tabs(["Dashboard", "Retention Playbook"])
 
 with tab1:
     # Key Metrics Row
@@ -192,13 +192,13 @@ with tab1:
     
 
 with tab2:
-    st.subheader("📋 Retention Playbook - Recommended Actions")
+    st.subheader("Retention Playbook - Recommended Actions")
 
     col1, col2, col3 = st.columns(3)
 
     with col1:
         st.markdown("""
-        ### 🚨 High Service Calls (4+ calls)
+        ### High Service Calls (4+ calls)
         **Trigger**: Customer service calls ≥ 4
 
         **Actions**:
@@ -213,7 +213,7 @@ with tab2:
 
     with col2:
         st.markdown("""
-        ### 🌍 International Plan Users
+        ### International Plan Users
         **Trigger**: International plan + high usage
 
         **Actions**:
@@ -228,7 +228,7 @@ with tab2:
 
     with col3:
         st.markdown("""
-        ### 💰 High Charges
+        ### High Charges
         **Trigger**: Total charges > $75 + risk score > 0.5
 
         **Actions**:
