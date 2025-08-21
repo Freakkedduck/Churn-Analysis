@@ -1,16 +1,6 @@
 # Customer Churn Analytics Dashboard
 
 This project provides a complete end-to-end customer churn analysis and retention strategy for telecom companies.
-
-## Project Structure
-```
-├── churn-bigml-20.csv           # Original dataset
-├── churn_analysis_results.csv   # Processed data with risk scores
-├── churn_dashboard.py           # Streamlit dashboard
-├── retention-playbook.md        # Complete retention strategy
-├── executive-summary.md         # Executive summary document
-├── requirements.txt             # Python dependencies
-└── README.md                   # This file
 ```
 
 ## Quick Start
@@ -62,42 +52,5 @@ This project provides a complete end-to-end customer churn analysis and retentio
 - **High-Risk Customers Identified**: 80
 - **Prediction Confidence**: 88% average score
 
-## Deployment Options
-
-### Local Development
-```bash
-streamlit run churn_dashboard.py
-```
-
-### Streamlit Cloud
-1. Push code to GitHub repository
-2. Connect to Streamlit Cloud
-3. Deploy directly from GitHub
-
-### Docker Deployment
-```dockerfile
-FROM python:3.9-slim
-COPY . /app
-WORKDIR /app
-RUN pip install -r requirements.txt
-EXPOSE 8501
-CMD ["streamlit", "run", "churn_dashboard.py"]
-```
-
-## Data Privacy & Security
-
-- All customer data is anonymized
-- No personal identifying information included
-- Compliant with data protection regulations
-- Secure model deployment practices
-
-## Support & Maintenance
-
-For questions or support:
-- Review the retention playbook for implementation guidance
-- Check the executive summary for business justification
-- Monitor dashboard metrics for ongoing performance
-
----
 
 *This project demonstrates end-to-end data science workflow from raw data to business value.*
