@@ -1,7 +1,7 @@
 # Customer Churn Analytics Dashboard
 
 This project provides a complete end-to-end customer churn analysis and retention strategy for telecom companies.
-```
+
 
 ## Quick Start
 
