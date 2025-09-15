@@ -77,7 +77,13 @@ df = load_data()
 # ------------------
 st.title("Customer Churn Insights Dashboard")
 st.markdown("Welcome! This dashboard helps you understand **why customers leave** and **what to do about it**")
-
+st.markdown("""
+<div class="spotify-card">
+    <h4>Dataset Used</h4>
+    <p>This dashboard is powered by <b>churn_analysis_results.csv</b>, 
+    which contains telecom customer records with details like <i>plans, support calls, charges, and churn status</i>.</p>
+</div>
+""", unsafe_allow_html=True)
 # ------------------
 # Pro View: Key Metrics Row
 # ------------------
