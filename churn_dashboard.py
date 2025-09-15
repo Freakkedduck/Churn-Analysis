@@ -28,7 +28,7 @@ df = load_data()
 # ------------------
 st.title(" Churn Insights Dashboard")
 st.markdown("Welcome! This dashboard helps you understand **why customers leave** and **what to do about it**")
-tab1, tab2 = st.tabs(["Churn Analytics"])
+tab1 = st.tabs(["Churn Analytics"])
 
 with tab1:
     # Key Metrics Row
