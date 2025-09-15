@@ -159,8 +159,5 @@ st.warning("**High Charges (> $75)** → Suggest bill optimization. Can save ~10
 # ------------------
 # Footer
 # ------------------
-st.markdown(\"---\")\nst.caption(\"Dashboard powered by Streamlit | Pro + Easy Views\")\n```
-
----
-
+st.markdown("---")
 st.markdown("*Dashboard powered by Streamlit and Built by Kunal Rao | Data updated in real-time*")
