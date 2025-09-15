@@ -61,7 +61,7 @@ df = load_data()
 # Title + Dataset Info
 # ------------------
 st.markdown(
-    "<h1 style='text-align: center; color: #1DB954;'>Customer Churn Insights Dashboard</h1>", 
+    "<h1 style='text-align: center; color: #FFFFFF;'>Customer Churn Insights Dashboard</h1>", 
     unsafe_allow_html=True
 )
 st.markdown("Welcome! This dashboard helps you understand why customers leave and what to do about it.")
