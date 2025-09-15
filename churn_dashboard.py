@@ -54,6 +54,11 @@ st.markdown("""
         color: #1DB954;
         margin-bottom: 10px;
     }
+    .explanation {
+        font-size: 0.9rem;
+        color: #BBBBBB;
+        margin-bottom: 15px;
+    }
     </style>
 """, unsafe_allow_html=True)
 
@@ -77,6 +82,7 @@ st.markdown("Welcome! This dashboard helps you understand **why customers leave*
 # Pro View: Key Metrics Row
 # ------------------
 st.header("⚡ Quick Stats (Pro View)")
+st.markdown('<p class="explanation">These are the raw numbers that give an expert-level overview of churn risk in your customer base.</p>', unsafe_allow_html=True)
 
 col1, col2, col3, col4, col5 = st.columns(5)
 
@@ -123,6 +129,8 @@ with col5:
 # Step 1: Overall Picture
 # ------------------
 st.header("1️⃣ Overall Picture (Easy View)")
+st.markdown('<p class="explanation">Here we simplify things: how many customers are leaving, how many are high risk, and what the average chance of leaving looks like.</p>', unsafe_allow_html=True)
+
 col1, col2, col3 = st.columns(3)
 
 with col1:
@@ -140,6 +148,8 @@ with col3:
 # Step 2: Why are customers leaving?
 # ------------------
 st.header("2️⃣ Why Are Customers Leaving?")
+st.markdown('<p class="explanation">These charts show the biggest reasons customers leave: too many support calls and plan choices that don’t fit their needs.</p>', unsafe_allow_html=True)
+
 col1, col2 = st.columns(2)
 
 with col1:
@@ -178,6 +188,8 @@ with col2:
 # Step 3: Who should we worry about?
 # ------------------
 st.header("3️⃣ Who Should We Worry About?")
+st.markdown('<p class="explanation">Here are the top high-risk customers who are most likely to leave soon. These are your priority for retention.</p>', unsafe_allow_html=True)
+
 high_risk_df = df[df['Risk_Category'] == 'High Risk'][[
     'State', 'Account length', 'Customer service calls', 'Total_charge', 'Churn_Risk_Score'
 ]].copy()
@@ -188,6 +200,7 @@ st.dataframe(high_risk_df.head(10), use_container_width=True)
 # Step 4: What can we do?
 # ------------------
 st.header("4️⃣ What Can We Do? (Action Plan)")
+st.markdown('<p class="explanation">Finally, here are simple, actionable strategies you can apply to reduce churn and keep more customers happy.</p>', unsafe_allow_html=True)
 
 st.markdown("""
 <div class="spotify-card">
@@ -211,4 +224,4 @@ st.markdown("""
 # Footer
 # ------------------
 st.markdown("---")
-st.caption("Built by Kunal Rao | Powered by Streamlit")
+st.caption("🎧 Spotify-style dashboard with explanations | Built with Streamlit")
