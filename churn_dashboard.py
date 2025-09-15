@@ -75,13 +75,13 @@ df = load_data()
 # ------------------
 # Title
 # ------------------
-st.title("📊 Customer Churn Insights Dashboard")
+st.title("Customer Churn Insights Dashboard")
 st.markdown("Welcome! This dashboard helps you understand **why customers leave** and **what to do about it**")
 
 # ------------------
 # Pro View: Key Metrics Row
 # ------------------
-st.header("⚡ Quick Stats (Pro View)")
+st.header("Quick Stats")
 st.markdown('<p class="explanation">These are the raw numbers that give an expert-level overview of churn risk in your customer base.</p>', unsafe_allow_html=True)
 
 col1, col2, col3, col4, col5 = st.columns(5)
@@ -128,7 +128,7 @@ with col5:
 # ------------------
 # Step 1: Overall Picture
 # ------------------
-st.header("1️⃣ Overall Picture (Easy View)")
+st.header("1. Overall Picture (Easy View)")
 st.markdown('<p class="explanation">Here we simplify things: how many customers are leaving, how many are high risk, and what the average chance of leaving looks like.</p>', unsafe_allow_html=True)
 
 col1, col2, col3 = st.columns(3)
@@ -138,7 +138,7 @@ with col1:
 
 with col2:
     high_risk = len(df[df['Risk_Category'] == 'High Risk'])
-    st.metric("⚠️ High Risk Customers", high_risk)
+    st.metric("High Risk Customers", high_risk)
 
 with col3:
     avg_risk = df['Churn_Risk_Score'].mean()
@@ -147,13 +147,13 @@ with col3:
 # ------------------
 # Step 2: Why are customers leaving?
 # ------------------
-st.header("2️⃣ Why Are Customers Leaving?")
+st.header("2. Why Are Customers Leaving?")
 st.markdown('<p class="explanation">These charts show the biggest reasons customers leave: too many support calls and plan choices that don’t fit their needs.</p>', unsafe_allow_html=True)
 
 col1, col2 = st.columns(2)
 
 with col1:
-    st.subheader("📞 Calls to Support vs Leaving")
+    st.subheader("Calls to Support vs Leaving")
     service_churn = df.groupby('Customer service calls')['Churn'].mean().reset_index()
     service_churn['Churn'] = service_churn['Churn'] * 100
     fig1 = px.bar(
@@ -169,7 +169,7 @@ with col1:
     st.plotly_chart(fig1, use_container_width=True)
 
 with col2:
-    st.subheader("🌍 Plan Type vs Leaving")
+    st.subheader("Plan Type vs Leaving")
     plan_data = []
     for plan_val, plan_name in [(0, 'No Intl Plan'), (1, 'Intl Plan')]:
         churn_rate = df[df['International_plan'] == plan_val]['Churn'].mean() * 100
@@ -187,7 +187,7 @@ with col2:
 # ------------------
 # Step 3: Who should we worry about?
 # ------------------
-st.header("3️⃣ Who Should We Worry About?")
+st.header("3. Who Should We Worry About?")
 st.markdown('<p class="explanation">Here are the top high-risk customers who are most likely to leave soon. These are your priority for retention.</p>', unsafe_allow_html=True)
 
 high_risk_df = df[df['Risk_Category'] == 'High Risk'][[
@@ -199,22 +199,22 @@ st.dataframe(high_risk_df.head(10), use_container_width=True)
 # ------------------
 # Step 4: What can we do?
 # ------------------
-st.header("4️⃣ What Can We Do? (Action Plan)")
+st.header("4. What Can We Do? (Action Plan)")
 st.markdown('<p class="explanation">Finally, here are simple, actionable strategies you can apply to reduce churn and keep more customers happy.</p>', unsafe_allow_html=True)
 
 st.markdown("""
 <div class="spotify-card">
-    <h4>📞 Unhappy Callers</h4>
+    <h4>Unhappy Callers</h4>
     Customers with 4+ calls → Reach out quickly! <br>
     <b>Can save ~20%</b>
 </div>
 <div class="spotify-card">
-    <h4>🌍 Intl Plan Users</h4>
+    <h4>Intl Plan Users</h4>
     Offer cheaper plans & usage alerts. <br>
     <b>Can save ~15%</b>
 </div>
 <div class="spotify-card">
-    <h4>💰 High Charges</h4>
+    <h4>High Charges</h4>
     Suggest bill optimization for >$75 users. <br>
     <b>Can save ~10%</b>
 </div>
@@ -224,4 +224,4 @@ st.markdown("""
 # Footer
 # ------------------
 st.markdown("---")
-st.caption("🎧 Spotify-style dashboard with explanations | Built with Streamlit")
+st.caption("Built by Kunal Rao | Powered by Streamlit")
