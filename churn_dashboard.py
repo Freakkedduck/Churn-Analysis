@@ -8,7 +8,7 @@ import plotly.express as px
 st.set_page_config(
     page_title="Customer Churn Dashboard",
     layout="wide",
-    page_icon="📊"
+    page_icon="🌐"
 )
 
 # ------------------
