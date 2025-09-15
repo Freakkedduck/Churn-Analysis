@@ -1,7 +1,9 @@
 import streamlit as st
 import pandas as pd
+import numpy as np
 import plotly.express as px
-
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
 # ------------------
 # Page Config
 # ------------------
@@ -26,7 +28,50 @@ df = load_data()
 # ------------------
 st.title(" Churn Insights Dashboard")
 st.markdown("Welcome! This dashboard helps you understand **why customers leave** and **what to do about it**")
+tab1, tab2 = st.tabs(["Churn Analytics"])
 
+with tab1:
+    # Key Metrics Row
+    col1, col2, col3, col4, col5 = st.columns(5)
+
+    with col1:
+        st.metric(
+            label="Overall Churn Rate",
+            value=f"{df['Churn'].mean()*100:.1f}%",
+            delta=f"{len(df)} customers"
+        )
+
+    with col2:
+        high_risk_count = len(df[df['Risk_Category'] == 'High Risk'])
+        st.metric(
+            label="High Risk Customers",
+            value=high_risk_count,
+            delta=f"{high_risk_count/len(df)*100:.1f}% of total"
+        )
+
+    with col3:
+        intl_churn = df[df['International_plan'] == 1]['Churn'].mean() * 100
+        st.metric(
+            label="Intl Plan Churn Rate",
+            value=f"{intl_churn:.1f}%",
+            delta="vs 12.4% overall"
+        )
+
+    with col4:
+        high_service_churn = df[df['Customer service calls'] >= 4]['Churn'].mean() * 100
+        st.metric(
+            label="High Service Calls Churn",
+            value=f"{high_service_churn:.1f}%",
+            delta="4+ calls"
+        )
+
+    with col5:
+        avg_risk_score = df['Churn_Risk_Score'].mean()
+        st.metric(
+            label="Avg Risk Score",
+            value=f"{avg_risk_score:.3f}",
+            delta="ML Prediction"
+        )
 # ------------------
 # Step 1: Overall Picture
 # ------------------
